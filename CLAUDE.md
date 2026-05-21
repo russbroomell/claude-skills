@@ -333,12 +333,18 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
    - `source` (object) — provenance metadata for skills built via Path-B megaprompt conversion. Recommended shape: `{spec: "megaprompts/NN-name.md", build_pattern: "...", distinct_from: "..."}`. Used by all 13 v2 megaprompt-derived skills (productivity/, marketing/, research/).
    - `attribution` (object) — credit metadata for skills derived from external MIT-licensed work. Used by `engineering/caveman`, `engineering/grill-me`, `engineering/grill-with-docs` (Matt Pocock derivatives).
 
-   No other extras. The `skills` value depends on the plugin layout (Claude Code v2.1.107+ rejects bare `"./"`, and v2.1.133+ rejects `"./skills"` with a "Path escapes plugin directory" warning — drop the `./` prefix):
-   - Single-skill plugin (SKILL.md at root): `"skills": ["./"]` (array form required).
-   - Plugin with `skills/` subdir: `"skills": "skills"` (no `./` prefix — see issue #686).
-   - Multi-skill domain plugin (skills are subfolders at root): `"skills": ["./sub1", "./sub2", ...]` (explicit list, omit `"./"` to avoid namespace collision with the index SKILL.md).
+   No other extras. The `skills` value depends on the plugin layout. Per the live Claude Code plugin spec ([plugins-reference](https://code.claude.com/docs/en/plugins-reference)), **all paths must be relative to the plugin root and start with `./`**. CC 2.1.144+ returns `Validation errors: skills: Invalid input` on a bare string without the prefix.
 
-   **Enforcement:** `scripts/check_plugin_json.py --all` runs in `ci-quality-gate.yml` on every PR and blocks merge on any violation. It actively rejects the `"./"` (issue #539) and `"./skills"` (issue #686) regressions. When CC tightens its path validator again in the future, update both the validator's `_check_skills_string` rules and this section together — they must move in lockstep.
+   **Canonical forms (CC 2.1.144+):**
+   - Single-skill plugin (SKILL.md at root): `"skills": ["./"]` (array form required).
+   - Plugin with `skills/` subdir: `"skills": "./skills"` or `"skills": ["./skills"]`.
+   - Multi-skill domain plugin (skills are subfolders at root): `"skills": ["./sub1", "./sub2", ...]` (explicit list).
+
+   **Legacy form (still tolerated by the validator):** `"skills": "skills"` (bare subdir name, no `./`). Older versions of CC accepted this; current CC rejects it. The repo has been fully migrated to the canonical form — the validator keeps WARN-level tolerance for the legacy literal as a safety net against accidental regressions in copied templates. Do **not** use this form in new manifests.
+
+   **Historical regressions (now reversed upstream):** The `./` prefix was briefly forbidden between CC v2.1.107 and v2.1.144 (issues #539, #686). That window is closed; the `./` prefix is required again. Do **not** reintroduce the bare-string form for new manifests.
+
+   **Enforcement:** `scripts/check_plugin_json.py --all` runs in `ci-quality-gate.yml` on every PR. It hard-fails on any non-`./`-prefixed string that isn't the legacy `"skills"` literal, on empty strings/arrays, and on non-string array entries. When CC tightens its path validator again in the future, update both the validator (`_check_skills_string` / `_check_skills_array`) and this section together — they must move in lockstep.
 6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.7.0+).
 
 ## Anti-Patterns to Avoid

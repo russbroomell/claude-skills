@@ -29,17 +29,7 @@ Report the inventory to the user before proceeding.
 
 Ensure all platforms have compatible versions of every skill, agent, and command.
 
-### 2a. Codex CLI
-
-Run the Codex sync script to regenerate symlinks and the skills index:
-
-```bash
-python3 scripts/sync-codex-skills.py --verbose
-```
-
-Verify the output: check `.codex/skills-index.json` for correct `total_skills` count and that new skills appear in the index.
-
-### 2b. Gemini CLI
+### 2a. Gemini CLI
 
 Run the Gemini sync script:
 

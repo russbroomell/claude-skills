@@ -196,7 +196,6 @@ Platform copies are handled by automated scripts. **Do not create or modify thes
 
 | Platform | Directory | Script |
 |----------|-----------|--------|
-| Codex CLI | `.codex/skills/` | `python3 scripts/sync-codex-skills.py` |
 | Gemini CLI | `.gemini/skills/` | `python3 scripts/sync-gemini-skills.py` |
 | Cursor/Aider/etc. | `integrations/` (gitignored) | `scripts/convert.sh --tool all` |
 

@@ -62,14 +62,6 @@ description: "78 installable agent plugins for Claude Code, Codex CLI, Gemini CL
     /plugin install research-orchestrator@claude-code-skills
     ```
 
-=== "OpenAI Codex"
-
-    ```bash
-    git clone https://github.com/alirezarezvani/claude-skills.git
-    cd claude-skills
-    ./scripts/codex-install.sh
-    ```
-
 === "Gemini CLI"
 
     ```bash

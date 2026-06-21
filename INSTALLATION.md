@@ -7,7 +7,6 @@ Complete installation guide for all 205+ production-ready skills across multiple
 - [Quick Start](#quick-start)
 - [Claude Code Native Marketplace](#claude-code-native-marketplace-new)
 - [Universal Installer](#universal-installer)
-- [OpenAI Codex Installation](#openai-codex-installation)
 - [Gemini CLI Installation](#gemini-cli-installation)
 - [Mistral Vibe Installation](#mistral-vibe-installation)
 - [OpenClaw Installation](#openclaw-installation)
@@ -34,18 +33,6 @@ Complete installation guide for all 205+ production-ready skills across multiple
 
 Native integration with automatic updates and version management.
 
-### For OpenAI Codex Users
-
-```bash
-# Option 1: Universal installer
-npx agent-skills-cli add alirezarezvani/claude-skills --agent codex
-
-# Option 2: Direct installation script
-git clone https://github.com/alirezarezvani/claude-skills.git
-cd claude-skills
-./scripts/codex-install.sh
-```
-
 ### For Gemini CLI Users
 
 ```bash
@@ -67,8 +54,6 @@ cd claude-skills
 ```
 
 Skills install to `~/.vibe/skills/claude-skills/` (symlinked) and are discovered automatically by Vibe via the standard `SKILL.md` + YAML frontmatter contract. See [Mistral Vibe Installation](#mistral-vibe-installation) for details.
-
-Skills install to `~/.codex/skills/`. See [OpenAI Codex Installation](#openai-codex-installation) for detailed instructions.
 
 ### For OpenClaw Users
 
@@ -192,7 +177,6 @@ npx agent-skills-cli add alirezarezvani/claude-skills
 - VS Code/Copilot → `.github/skills/`
 - Goose → `~/.config/goose/skills/`
 - Amp → Platform-specific location
-- Codex → Platform-specific location
 - Letta → Platform-specific location
 - OpenCode → Platform-specific location
 
@@ -910,110 +894,6 @@ python3 finance/financial-analyst/scripts/dcf_valuation.py --help
 
 ---
 
-## OpenAI Codex Installation
-
-OpenAI Codex users can install skills using the methods below. This repository provides full Codex compatibility through a `.codex/skills/` directory with symlinks to all skills.
-
-### Method 1: Universal Installer (Recommended)
-
-```bash
-# Install all skills to Codex
-npx agent-skills-cli add alirezarezvani/claude-skills --agent codex
-
-# Preview before installing
-npx agent-skills-cli add alirezarezvani/claude-skills --agent codex --dry-run
-```
-
-### Method 2: Direct Installation Script
-
-For manual installation using the provided scripts:
-
-**macOS/Linux:**
-```bash
-# Clone repository
-git clone https://github.com/alirezarezvani/claude-skills.git
-cd claude-skills
-
-# Generate symlinks (if not already present)
-python3 scripts/sync-codex-skills.py
-
-# Install all skills to ~/.codex/skills/
-./scripts/codex-install.sh
-
-# Or install specific category
-./scripts/codex-install.sh --category marketing
-./scripts/codex-install.sh --category engineering
-
-# Or install single skill
-./scripts/codex-install.sh --skill content-creator
-
-# List available skills
-./scripts/codex-install.sh --list
-```
-
-**Windows:**
-```cmd
-REM Clone repository
-git clone https://github.com/alirezarezvani/claude-skills.git
-cd claude-skills
-
-REM Generate structure (if not already present)
-python scripts\sync-codex-skills.py
-
-REM Install all skills to %USERPROFILE%\.codex\skills\
-scripts\codex-install.bat
-
-REM Or install single skill
-scripts\codex-install.bat --skill content-creator
-
-REM List available skills
-scripts\codex-install.bat --list
-```
-
-### Method 3: Manual Installation
-
-```bash
-# Clone repository
-git clone https://github.com/alirezarezvani/claude-skills.git
-cd claude-skills
-
-# Copy skills (following symlinks) to Codex directory
-mkdir -p ~/.codex/skills
-cp -rL .codex/skills/* ~/.codex/skills/
-```
-
-### Verification
-
-```bash
-# Check installed skills
-ls ~/.codex/skills/
-
-# Verify skill structure
-ls ~/.codex/skills/content-creator/
-# Should show: SKILL.md, scripts/, references/, assets/
-
-# Check total skill count
-ls ~/.codex/skills/ | wc -l
-```
-
-### Available Categories
-
-| Category | Skills | Examples |
-|----------|--------|----------|
-| **c-level** | 28 | ceo-advisor, cto-advisor, cfo-advisor, executive-mentor |
-| **engineering** | 23 | senior-fullstack, aws-solution-architect, senior-ml-engineer, playwright-pro |
-| **engineering-advanced** | 25 | agent-designer, rag-architect, mcp-server-builder, performance-profiler |
-| **marketing** | 42 | content-creator, seo-audit, campaign-analytics, content-strategy |
-| **product** | 8 | product-manager-toolkit, agile-product-owner, saas-scaffolder |
-| **project-management** | 6 | scrum-master, senior-pm, jira-expert, confluence-expert |
-| **ra-qm** | 12 | regulatory-affairs-head, quality-manager-qms-iso13485, gdpr-dsgvo-expert |
-| **business-growth** | 4 | customer-success-manager, sales-engineer, revenue-operations |
-| **finance** | 2 | financial-analyst, saas-metrics-coach |
-
-See `.codex/skills-index.json` for the complete manifest with descriptions.
-
----
-
 ## Advanced: Installation Locations Reference
 
 | Agent | Default Location | Flag | Notes |
@@ -1023,7 +903,6 @@ See `.codex/skills-index.json` for the complete manifest with descriptions.
 | **VS Code/Copilot** | `.github/skills/` | `--agent vscode` | Project-level installation |
 | **Goose** | `~/.config/goose/skills/` | `--agent goose` | User-level installation |
 | **Amp** | Platform-specific | `--agent amp` | Varies by platform |
-| **Codex** | `~/.codex/skills/` | `--agent codex` | User-level installation |
 | **Letta** | Platform-specific | `--agent letta` | Varies by platform |
 | **OpenCode** | Platform-specific | `--agent opencode` | Varies by platform |
 | **OpenClaw** | `~/.openclaw/skills/` | `clawhub install` | YAML frontmatter triggers |

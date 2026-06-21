@@ -57,7 +57,7 @@ DOMAIN_DIRS = [
 def discover_skills(repo_root, domains=None):
     """Find all skills across specified domains.
 
-    Supports three discovery patterns (same as sync-codex-skills.py):
+    Supports three discovery patterns (same as sync-gemini-skills.py):
       1. <domain>/<skill>/SKILL.md         — flat-domain pattern (legacy)
       2. <domain>/skills/<skill>/SKILL.md  — flat-with-skills-dir pattern (e.g., c-level-advisor/skills/)
       3. <domain>/<plugin>/skills/<skill>/SKILL.md — nested plugin pattern (e.g., research/research/skills/research/)

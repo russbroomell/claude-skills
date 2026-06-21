@@ -7,7 +7,7 @@ description: "How to install 345 agent skills and 78 plugins in any of 13 AI cod
 
 Installing agent skills takes under two minutes on most platforms. There's nothing to configure: no API keys, no dependencies, no build step. Pick your tool below, run the commands, and the skills are live.
 
-New here? Read [What is an Agent Skill?](index.md#what-is-an-agent-skill) first, or jump straight to a tool-specific guide: [Claude Code](guides/best-claude-code-plugins.md), [OpenAI Codex](guides/agent-skills-for-codex.md), [Gemini CLI](guides/gemini-cli-skills-guide.md), [Cursor](guides/cursor-skills-guide.md), or [OpenClaw](guides/openclaw-skills-guide.md).
+New here? Read [What is an Agent Skill?](index.md#what-is-an-agent-skill) first, or jump straight to a tool-specific guide: [Claude Code](guides/best-claude-code-plugins.md), [Gemini CLI](guides/gemini-cli-skills-guide.md), [Cursor](guides/cursor-skills-guide.md), or [OpenClaw](guides/openclaw-skills-guide.md).
 
 ## Installation
 
@@ -28,19 +28,6 @@ Choose your platform and follow the steps:
         <strong>Use them immediately</strong> — skills activate as slash commands or contextual expertise.
       </li>
     </ol>
-
-=== "OpenAI Codex"
-
-    ```bash
-    npx agent-skills-cli add alirezarezvani/claude-skills --agent codex
-    ```
-
-    Or clone and install manually:
-
-    ```bash
-    git clone https://github.com/alirezarezvani/claude-skills.git
-    ./scripts/codex-install.sh
-    ```
 
 === "Gemini CLI"
 

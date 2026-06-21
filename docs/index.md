@@ -40,7 +40,6 @@ Give your AI coding agent real domain expertise. Every skill is a self-contained
 
 <div class="tools-grid">
   <a href="guides/best-claude-code-plugins/" class="tool-badge tool-claude">Claude Code</a>
-  <a href="guides/agent-skills-for-codex/" class="tool-badge tool-codex">OpenAI Codex</a>
   <a href="guides/gemini-cli-skills-guide/" class="tool-badge tool-gemini">Gemini CLI</a>
   <a href="guides/cursor-skills-guide/" class="tool-badge tool-cursor">Cursor</a>
   <a href="integrations/#hermes-agent" class="tool-badge tool-hermes">Hermes Agent</a>
@@ -414,7 +413,6 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 Tool-specific walkthroughs for getting the most out of the library:
 
 - **[Best Claude Code Plugins & Skills](guides/best-claude-code-plugins.md)** — the 20 plugins to start with, by use case
-- **[Agent Skills for OpenAI Codex CLI](guides/agent-skills-for-codex.md)** — install and invoke skills in Codex
 - **[Gemini CLI Skills & Plugins Guide](guides/gemini-cli-skills-guide.md)** — setup, indexing, and usage for Gemini CLI
 - **[Cursor Agent Skills & Rules Guide](guides/cursor-skills-guide.md)** — convert skills to Cursor's rules format
 - **[OpenClaw Skills Guide](guides/openclaw-skills-guide.md)** — one-line install for OpenClaw workspaces

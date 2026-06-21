@@ -63,13 +63,6 @@ hide:
     cd claude-skills && python3 scripts/sync-gemini-skills.py
     ```
 
-=== "OpenAI Codex"
-
-    ```bash
-    git clone https://github.com/alirezarezvani/claude-skills.git
-    cd claude-skills && python3 scripts/sync-codex-skills.py
-    ```
-
 === "OpenClaw"
 
     ```bash

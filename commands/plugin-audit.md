@@ -186,7 +186,6 @@ grep -l "{skill_name}" .codex/skills-index.json .gemini/skills-index.json
 
 If missing from either index:
 ```bash
-python3 scripts/sync-codex-skills.py --verbose
 python3 scripts/sync-gemini-skills.py --verbose
 ```
 

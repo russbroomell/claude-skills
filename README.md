@@ -84,13 +84,6 @@ cd claude-skills
 /plugin install content-creator@claude-code-skills              # Single skill
 ```
 
-### OpenAI Codex
-
-```bash
-npx agent-skills-cli add alirezarezvani/claude-skills --agent codex
-# Or: git clone + ./scripts/codex-install.sh
-```
-
 ### OpenClaw
 
 ```bash

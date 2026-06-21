@@ -132,7 +132,6 @@ nav:
   - Multi-Tool Integrations: integrations.md
   - Guides:
     - "Best Claude Code Plugins": guides/best-claude-code-plugins.md
-    - "Agent Skills for Codex": guides/agent-skills-for-codex.md
     - "Gemini CLI Skills Guide": guides/gemini-cli-skills-guide.md
     - "Cursor Skills Guide": guides/cursor-skills-guide.md
     - "OpenClaw Skills Guide": guides/openclaw-skills-guide.md

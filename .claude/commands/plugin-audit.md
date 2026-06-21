@@ -85,9 +85,8 @@ Check the parent domain's `.claude-plugin/plugin.json` — verify skill count in
 ## Phase 7: Ecosystem Integration
 
 ### 7a. Cross-platform sync
-Verify skill appears in `.codex/skills-index.json` and `.gemini/skills-index.json`. If missing:
+Verify skill appears in `.gemini/skills-index.json`. If missing:
 ```bash
-python3 scripts/sync-codex-skills.py --verbose
 python3 scripts/sync-gemini-skills.py --verbose
 ```
 

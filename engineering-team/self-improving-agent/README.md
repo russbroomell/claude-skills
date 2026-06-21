@@ -37,11 +37,6 @@ Promoting a pattern from memory to rules fundamentally changes how Claude treats
 clawhub install self-improving-agent
 ```
 
-### Codex CLI
-```bash
-./scripts/codex-install.sh --skill self-improving-agent
-```
-
 ## How It Works
 
 ```

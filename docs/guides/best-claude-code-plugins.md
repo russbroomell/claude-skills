@@ -100,7 +100,6 @@ Every plugin in this collection works across multiple AI coding agents:
 | Tool | Format | Install Method |
 |------|--------|---------------|
 | Claude Code | `.claude-plugin` | `/plugin install` |
-| OpenAI Codex | `.codex/skills/` | `./scripts/codex-install.sh` |
 | Gemini CLI | `.gemini/skills/` | `./scripts/gemini-install.sh` |
 | Cursor | `.cursor/skills/` | `./scripts/convert.sh --tool cursor` |
 | OpenClaw | `clawhub install` | Via ClawHub marketplace |
@@ -111,7 +110,6 @@ Every plugin in this collection works across multiple AI coding agents:
 ## Related Resources
 
 - [Full Skill Catalog](https://github.com/alirezarezvani/claude-skills) — all 345 skills
-- [Agent Skills for Codex](./agent-skills-for-codex.md) — Codex-specific guide
 - [Gemini CLI Skills Guide](./gemini-cli-skills-guide.md) — Gemini CLI setup
 - [Cursor Skills Guide](./cursor-skills-guide.md) — Cursor integration
 

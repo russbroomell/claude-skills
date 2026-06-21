@@ -64,11 +64,6 @@ Claude Code's auto-memory (v2.1.32+) automatically records project patterns, deb
 clawhub install self-improving-agent
 ```
 
-### Codex CLI
-```bash
-./scripts/codex-install.sh --skill self-improving-agent
-```
-
 ## Memory Architecture
 
 ### Where things live

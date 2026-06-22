@@ -49,6 +49,39 @@ Framework-driven decision for specific trade-off scenarios with structured compa
 
 ---
 
+## Deterministic Engine — run this for every number
+
+**Do not compute ROI, payback, NPV, IRR, scenarios, the score, or budget
+allocation by hand.** Run the analyzer and read its output. It is exact (LLM
+mental math mis-handles multi-period NPV and iterative IRR), faster, and keeps
+the response token-light — spend tokens on judgment, not arithmetic.
+
+```bash
+# Mode 1 — single investment (flat annual cash flow)
+python3 scripts/investment_analyzer.py single \
+    --cost 50000 --annual-cash-flow 22000 --years 5 \
+    --discount-rate 0.12 --hurdle-rate 0.15 [--salvage 5000] \
+    [--score 4,5,3,4,3,4]          # six 1-5 ints: roi,payback,fit,risk,reversibility,cashflow
+
+# Per-year cash flows instead of a flat figure:
+python3 scripts/investment_analyzer.py single --cost 50000 \
+    --cash-flows 10000,15000,20000,20000,27000 --discount-rate 0.12
+
+# Mode 2 — rank/allocate a fixed budget
+#   options.json = list of {name, cost, annual_cash_flow|cash_flows, years}
+python3 scripts/investment_analyzer.py allocate --budget 100000 --options options.json
+```
+
+The tool returns base / downside (−40%) / upside (+20%) NPV·IRR·payback, the
+6-dimension score with verdict, an IRR-ranked allocation (quick wins < 6 mo
+funded first; negative-NPV options held for a named strategic reason), and
+plain-language flags. Drop its numbers straight into the Output Format table;
+add the recommendation narrative, assumptions, and risks around them. Use
+`--output json` to chain or post-process.
+
+The formulas below are reference for *explaining* the result — not an
+instruction to recompute it manually.
+
 ## Core Analysis Framework
 
 ### ROI (Return on Investment)
@@ -162,7 +195,8 @@ Surface these without being asked:
 
 ## Output Format
 
-For every investment analysis:
+For every investment analysis, pull THE NUMBERS from `investment_analyzer.py`
+(do not hand-calculate them):
 
 **RECOMMENDATION:** [Proceed / Proceed with conditions / Do not proceed]
 
@@ -193,7 +227,7 @@ For every investment analysis:
 ## Communication
 
 - **Bottom line first** — recommendation before explanation
-- **Show all math** — every formula with actual numbers plugged in
+- **Show all math** — surface the analyzer's figures; cite the formula behind each (the script computes, you explain)
 - **State every assumption** — never hide them in the analysis
 - **Confidence tagging** — 🟢 verified data / 🟡 reasonable estimate / 🔴 assumed — validate before committing
 - **Conservative by default** — use base case numbers, not optimistic projections
